@@ -1,0 +1,278 @@
+<!-- <div>
+    <h3>String Interpolation</h3>
+<h5> 1- Way DataBinding</h5>
+<p> {{mssg}}</p>
+<input type="text" [value]="mssg" placeholder="message"/>
+<input type="text" value="{{mssg}}" placeholder="message">
+
+
+<label for="l1">  select loc</label>
+<select [(ngModel)] ="companylocation" id="l1" (change)= "display()">
+    <option value="dadar">Dadar</option>
+    <option value="parel">parel</option>
+    <option value="rabale">Rabale</option>
+</select> -->
+
+
+<h4>1-way data binding</h4>
+<h5>String interpolation</h5>
+<i>{{mssg}}</i> <!-- {{}}-->
+<h5>Attribute binding</h5>
+<input type="text" [value]="mssg" placeholder="message"> <!-- []-->
+<input type="text" value="{{mssg}}" placeholder="message">
+<h4>2-way data binding</h4>
+<input type="text" [(ngModel)]="mssg" placeholder="message" (keyup)="display()"> <!-- FormsModules-->
+<label for="loc">Select ur working location</label>
+<select [(ngModel)]="companylocation" id="loc" (change)="display()"> <!-- [()]-->
+    <option value="rabale">Rabale</option>
+    <option value="dadar">Dadar</option>
+    <option value="parel">Parel</option>
+</select>
+<p>
+    <i>{{mssg.toUpperCase()}}</i>
+    <b>{{classRef.counter}}</b>
+</p>
+<!-- <p> -->
+<!-- {{display()}}
+    </p>
+    <p>
+        <i>{{mssg.toUpperCase()+"this is another concatenation"}}</i>
+    </p> -->
+
+<select [value]="comploc" [(ngModel)]="comploc" name="location" id="location">
+    <option [value]="item" *ngFor="let item of loc" (change)="display()">{{item | uppercase}}</option>
+
+</select>
+
+<div>
+    <!-- <h3>Template Refrence variable</h3>
+    
+            <p #para >
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed rem nisi rerum reiciendis, quia illum? Est ab quia odit aut ex, dolorem maxime, sequi consectetur dolor explicabo minima, exercitationem unde.
+            </p>
+        <button type="button" (click) = "getnode(para)"> accessnode</button> <br>
+    
+
+            <label for="l2">Enter age</label>
+            <input type="text" id="l2" #age (change)="getcal(age)" >
+
+            <br><br>
+
+            <section>
+            <label for="l2">Enter age</label>
+            <input type="text" id="l2" [(ngModel)]="VoterAge" >
+            
+            <p *ngIf = "VoterAge>28"> Welcome ........... allowed to vote</p>
+            <p *ngIf= "VoterAge<28"> Welcome ........... Not allowed to vote</p>
+            
+</section>
+<hr> -->
+    <!-- <section>
+    <label for="l3">Enter age</label>
+    <input type="text" id="l3" [(ngModel)]="VoterAge" >
+    <p *ngIf="VoterAge>28  else elsepart" > Welcome ........... allowed to vote</p>
+
+    <ng-template  #elsepart >
+    <p > Welcome ........... Not allowed to vote</p>
+</ng-template>
+</section>
+<br>
+<br>
+            
+</div>
+</div>
+    <div class="container">
+        <div class="row align-items-start">
+          <div class="col">
+            One of three columns
+          </div>
+          <div class="col">
+            One of three columns
+          </div>
+          <div class="col">
+            One of three columns
+          </div>
+          <div class="col">
+            One of three columns
+          </div>
+        </div>
+ -->
+    <!--         
+
+    <div>................................</div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-3 col-lg-3">
+                Column 1
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                Column 2
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                Column 3
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                Column 4
+            </div>
+        </div>
+    </div>
+    
+    <div>................................</div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                Column 1
+            </div>
+            <div class="col-4 offset-4">
+                Column 2 (offset by 4 columns)
+            </div>
+        </div>
+    </div>
+     -->
+
+
+    <img [src]="logoObject.path" [alt]="logoObject.alternatemsg" [width]="logoObject.width"
+        [height]="logoObject.height" />
+
+
+    <h1># subject Assignment</h1>
+    <h3>marks out of 300</h3>
+    <label for="subject1">subject1</label>
+    <input type="number" class="border border-black p-1 block" value="" name="sub1" (keyup)="setMarks()" id="subject1"
+        [(ngModel)]="subjects.sub1" />
+    <br>
+
+    <label for="subject2">subject2</label>
+    <input type="number" value="" class="border border-black p-1 block" name="sub2" (keyup)="setMarks()" id="subject2"
+        [(ngModel)]="subjects.sub2" />
+    <br>
+    <label for="subject3">subject3</label>
+    <input type="number" value="" class="border border-black p-1     block" name="sub3" (keyup)="setMarks()"
+        id="subject3" [(ngModel)]="subjects.sub3" />
+    <br>
+
+    <h3>total : {{ total }}</h3>
+    <h3>percentage: {{ percentage }}%</h3>
+
+
+    <!--    nfIf..............
+    
+    <div *ngIf="percentage >= 70">
+        <p class="bg-purple-700 p-3">disinction</p>
+    </div>
+    <div *ngIf="percentage > 60 && percentage < 69">
+        <p class="bg-green-500 p-3">first class</p>
+    </div>
+    <div *ngIf="percentage > 40 && percentage < 59">
+        <p class="bg-yellow-500 p-3">pass</p>
+    </div>
+    <div *ngIf="percentage < 40">
+        <p class="bg-red-500 p-3">fail</p> -->
+
+
+        <!-- Switch case ...................................................... -->
+
+        <article [ngSwitch]="getCategory()">
+            <div *ngSwitchCase="'distinction'">
+                <p class="text-success text-bold p-1">Distinction</p>
+            </div>
+        
+            <div *ngSwitchCase="'firstClass'">
+                <p class="text-success text-bold p-1">1st Class</p>
+            </div>
+        
+            <div *ngSwitchCase="'pass'">
+                <p class="text-warning text-bold p-1">Pass</p>
+            </div>
+        
+            <div *ngSwitchCase="'fail'">
+                <p class="text-danger text-bold p-1">Fail</p>
+            </div>
+        
+            <div *ngSwitchDefault>
+                <p>No category available.</p>
+            </div>
+        </article>
+        
+    <!-- ......................................................................................... -->
+
+
+    <label for="loc">Select your working location</label>
+    <select [(ngModel)]="companylocation" id="loc" (change)="display()"> 
+        <option value="rabale">Rabale</option>
+        <option value="dadar">Dadar</option>
+        <option value="parel">Parel</option>
+    </select>
+    
+    <article [ngSwitch]="companylocation">
+    
+        <div *ngSwitchCase="'dadar'">
+         Address: Unit # 5, 4th Floor, The Ruby, 29, Senapati Bapat Marg, w, Dadar, Mumbai, Maharashtra 400028
+        </div>
+    
+        <div *ngSwitchCase="'rabale'">
+           Unit No 501, Sigma IT Park, Plot No R-203,204, Midc TTC Industrial Area. Rabale, Navi Mumbai, Maharashtra 400701
+        </div>
+    
+        <div *ngSwitchCase="'parel'">
+         Address: 9th floor, Business arcade, Sayani Rd, Parel Bus Depot, Dighe Nagar, Prabhadevi, Mumbai, Maharashtra 400025   
+             </div>
+    
+        <div *ngSwitchDefault>
+            Please select a location.
+        </div>
+
+    </article>
+
+<!-- .......................................ngFor -->
+ <h3>ngFor</h3>   
+<div>
+    <ol>
+        <li *ngFor= "let l of loc">{{l | lowercase}}</li>
+    </ol>
+    <ol *ngFor= "let l of loc">
+        <li>{{l | slice  :0 :3| uppercase}}</li>
+    </ol>
+</div>
+
+<table class="table table-stripped">
+    <tbody>
+        <tr><th>SALARY</th><td *ngFor="let salary of salary">{{salary}}</td></tr>
+        <tr><th>SALARY</th><td *ngFor="let salary of salary">{{salary | number}}</td></tr>
+        <tr><th>SALARY</th><td *ngFor="let salary of salary">{{salary | number : ".2"}}</td></tr> //min: 2 max :any ,decimal
+        <tr><th>SALARY</th><td *ngFor="let salary of salary">{{salary | number : ".2-2"}}</td></tr>  /min: 2 max :2 ,decimal
+        <tr><th>SALARY</th><td *ngFor="let salary of salary">{{salary | number : "8.2-2"}}</td></tr>
+        <tr><th>SALARY</th><td *ngFor="let salary of salary">{{salary | currency}}</td></tr>
+        <tr><th>SALARY</th><td *ngFor="let salary of salary">{{salary | currency : 'INR'  }}</td></tr>
+        <tr><th>SALARY</th><td *ngFor="let salary of salary">{{salary | currency : 'INR' :'code' }}</td></tr>
+        <tr><th>SALARY</th><td *ngFor="let salary of salary">{{salary | currency : 'INR' :'code' :'8.1-1' }}</td></tr>
+    </tbody>
+</table>
+
+<table>
+    <tbody>
+        <tr><td>{{today}}</td></tr>
+        <tr><td>{{today | date : "short" }}</td></tr>
+        <tr><td>{{today |date : "mediumTime"}}</td></tr>
+        <tr><td>{{today |date : "full"}}</td></tr>
+        <tr><td>{{today |date : "MMMMM"}}</td></tr>
+    </tbody>
+</table>
+
+<button (click) = "test()"> Format Date </button>
+
+
+<table class="table table-stripped">
+    <tbody>
+        <tr><th>SALARY OrderBY</th><td *ngFor="let salary of salary | orderby  ">{{salary}}</td></tr>
+        <tr><th>SALARY</th><td *ngFor="let salary of salary"><span></span><span>{{salary}}</span></td></tr>
+    </tbody>
+</table>
+
+<ol>
+    <li *ngFor="let birthdate of birthDates | orderby">
+        {{birthdate | date :'fullDate' }}
+    </li>
+</ol>

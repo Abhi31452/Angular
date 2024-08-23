@@ -1,0 +1,65 @@
+<article class="d-flex justify-content-center">
+    <div class="w-50 border border-2 p-4 shadow p-3 mb-5 bg-white rounded">
+      <h2 class="mb-4">User Details</h2>
+      
+      <form [formGroup]="UserForm" (ngSubmit)="collectData()">
+        
+        <div class="form-group col-md-6">
+          <label for="firstName">First Name</label>
+          <input type="text" class="form-control" id="firstName" placeholder="Enter First Name" formControlName="firstName">
+          <div class="text-danger" *ngIf="firstName?.touched && firstName?.invalid">
+            <span *ngIf="firstName?.hasError('required')">First name is required</span>
+            <span  *ngIf="firstName?.hasError('min')"> Minimum 3 letter required </span>
+            <span  *ngIf="firstName?.hasError('pattern')"> characters required </span>
+          </div>
+        </div>
+  
+        <div class="form-group col-md-6">
+          <label for="lastName">Last Name</label>
+          <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name" formControlName="lastName">
+          <div class="text-danger" *ngIf="lastName?.touched && lastName?.invalid">
+            <span *ngIf="lastName?.hasError('required')">Last name is required</span>
+          </div>
+        </div>
+  
+        <div class="form-group col-md-6">
+          <label for="age">Age</label>
+          <input type="number" class="form-control" id="age" placeholder="Enter Age" formControlName="age">
+          <div class="text-danger" *ngIf="age?.touched && age?.invalid">
+            <span *ngIf="age ?.hasError('required')">Age is required</span>
+            <span *ngIf="age?.hasError('min')">Age must be greater than 0</span>
+          </div>
+        </div>
+  
+        <div class="form-group col-md-6">
+          <label for="phno">Phone Number</label>
+          <input type="text" class="form-control" id="phno" placeholder="Enter Phone Number" formControlName="phno">
+          <div class="text-danger" *ngIf="phno?.touched && phno?.invalid">
+            <span *ngIf="phno?.hasError('required')">Phone number is required</span>
+            <span *ngIf="phno?.hasError('min')">Invalid phone number format</span>
+          </div>
+        </div>
+  
+        <div class="form-group col-md-6">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter Email" formControlName="email">
+          <div class="text-danger" *ngIf="email?.touched && email?.invalid">
+            <span *ngIf="email?.hasError('required')">Email is required</span>
+            <span *ngIf="email?.hasError('email')">Invalid email format</span>
+          </div>
+        </div>
+  
+        <div class="form-group col-md-6">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Enter Password" formControlName="password">
+          <div class="text-danger" *ngIf="password?.touched && password?.invalid">
+            <span *ngIf="password?.hasError('required')">Password is required</span>
+            <span *ngIf="phno?.hasError('min')">Invalid phone number format</span>
+          </div>
+        </div>
+  
+        <button type="submit" class="btn btn-primary" [disabled]="UserForm.invalid">Submit</button>
+      </form>
+    </div>
+  </article>
+  

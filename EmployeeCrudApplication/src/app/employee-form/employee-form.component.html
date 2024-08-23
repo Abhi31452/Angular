@@ -1,0 +1,93 @@
+<article class="d-flex justify-content-center">
+  <div class="w-50 border border-2 p-4 shadow p-3 mb-5 bg-white rounded">
+      <h2 class="mb-4">Employee Details</h2>
+      <form [formGroup]="employeeForm" (ngSubmit)="collectData()">
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="empId">Employee ID</label>
+                  <input type="number" class="form-control" id="empId" placeholder="Enter Employee ID" formControlName="empId">
+                  <div class="text-danger" *ngIf="eid?.touched && eid?.invalid">
+                      <span *ngIf="eid?.hasError('required')">ID is required</span>
+                  </div>
+              </div>
+
+              <div class="form-group col-md-6">
+                  <label for="empName">Employee Name</label>
+                  <input type="text" class="form-control" id="empName" placeholder="Enter Employee Name" formControlName="empName">
+                  <div class="text-danger" *ngIf="ename?.touched && ename?.invalid">
+                      <span *ngIf="ename?.hasError('required')">Employee name is required</span>
+                      <span *ngIf="ename?.hasError('pattern')">Invalid characters. Only letters are allowed</span>
+                      <span *ngIf="ename?.hasError('minlength')">Name must be at least 2 characters long</span>
+                  </div>
+              </div>
+          </div>
+
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="joiningDate">Joining Date</label>
+                  <input type="date" class="form-control" id="joiningDate" placeholder="Select Joining Date" formControlName="joiningDate">
+              </div>
+
+              <div class="form-group col-md-6">
+                  <label for="basicsal">Salary</label>
+                  <input type="number" class="form-control" id="basicsal" placeholder="Enter Salary" formControlName="basicsal">
+                  <div class="text-danger" *ngIf="salary?.touched && salary?.invalid">
+                      <span *ngIf="salary?.hasError('required')">Salary is required</span>
+                      <span *ngIf="salary?.hasError('pattern')">Invalid salary format. Only numbers are allowed</span>
+                  </div>
+              </div>
+          </div>
+
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="deptCode">Department</label>
+                  <select class="form-control" id="deptCode" formControlName="deptCode">
+                      <option *ngFor="let code of deptCodes" [value]="code">{{code}}</option>
+                  </select>
+                  <div class="text-danger" *ngIf="dcode?.touched && dcode?.invalid">
+                      <span *ngIf="dcode?.hasError('required')">Department is required</span>
+                  </div>
+              </div>
+
+              <div class="form-group col-md-6">
+                  <label for="experience">Experience</label>
+                  <input type="number" class="form-control" id="experience" placeholder="Enter Experience in Years" formControlName="experience">
+                  <div class="text-danger" *ngIf="exp?.touched && exp?.invalid">
+                      <span *ngIf="exp?.hasError('required')">Experience is required</span>
+                      <span *ngIf="exp?.hasError('min')">Experience cannot be negative</span>
+                      <span *ngIf="exp?.hasError('max')">Experience cannot exceed 99 years</span>
+                  </div>
+              </div>
+          </div>
+
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="dob">Date of Birth</label>
+                  <input type="date" class="form-control" id="dob" placeholder="Select Date of Birth" >
+              </div>
+
+              <div class="form-group col-md-6">
+                  <label for="age">Age</label>
+                  <input type="number" class="form-control" id="age" placeholder="Enter Age" >
+              </div>
+          </div>
+
+          <div class="form-group mb-3">
+              <label for="secretCode" class="form-label">Secret Code</label>
+              <input type="text" class="form-control" id="secretCode" formControlName="secretCode">
+              <div class="text-danger" *ngIf="scode?.touched && scode?.invalid">
+                  <span *ngIf="scode?.hasError('required')">Secret code is required</span>
+                  <span *ngIf="scode?.hasError('minlength')">Secret code must be at least 3 characters long</span>
+                  <span *ngIf="scode?.hasError('maxlength')">Secret code cannot be more than 6 characters</span>
+              </div>
+          </div>
+
+          <div class="form-group mb-3">
+              <label for="confirmCode" class="form-label">Confirm Code</label>
+              <input type="text" class="form-control" id="confirmCode" formControlName="confirmCode">
+          </div>
+
+          <button type="submit" class="btn btn-primary" [disabled]="employeeForm.invalid">Submit</button>
+      </form>
+  </div>
+</article>

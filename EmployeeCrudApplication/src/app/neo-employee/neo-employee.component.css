@@ -1,0 +1,11 @@
+/* // Custom class */ 
+
+.link{
+    color: rgb(32, 20, 21);
+    border: 2px dotted red;
+    padding: 10px  10px 10px 10px;
+}
+
+.card-body{
+    padding: 4;
+}

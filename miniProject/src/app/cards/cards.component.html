@@ -1,0 +1,59 @@
+<!-- 
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <div class="container" style="padding-top: 20px;">
+    <div class="row row-cols-1 row-cols-md-3 g-4 ">
+      <div class="col" *ngFor="let food of foodItem">
+        <div class="card shadow-sm border-light shadow-lg p-3 mb-5 bg-body rounded">
+          <img [src]="food.imagePath" style="height: 210px; object-fit: cover; width: 100%;" alt="{{food.itemName}}"> <br>
+         
+          <div class="card-body">
+            <h4 class="card-title text-center text-danger">{{food.name | titlecase}}</h4>
+            <h5 class="card-title text-center text-primary">{{food.price | currency: 'INR'}}</h5>
+            <p class="card-text text-muted">{{food.description | titlecase}}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <h6 class="card-text mb-0">{{food.rating}} 
+                <span  *ngFor="let f of food.rating">  
+                <span class="fa fa-star" style="color: orange;"> f </span>
+                </span>
+            </h6>
+              <a href="#" class="btn btn-outline-danger">Order Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+-->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="container" style="padding-top: 20px;">
+  <div class="row row-cols-1 row-cols-md-3 g-4 ">
+    <div class="col" *ngFor="let food of foodItem">
+      <div class="card shadow-sm border-light shadow-lg p-3 mb-5 bg-body rounded">
+        <img [src]="food.imagePath" style="height: 210px; object-fit: cover; width: 100%; border-radius: 20px;" alt="{{food.itemName}}"> <br>
+       
+        <div class="card-body">
+          <h4 class="card-title text-center text-danger">{{food.name | titlecase}}</h4>
+          <h5 class="card-title text-center text-primary">{{food.price | currency: 'INR'}}</h5>
+          <p class="card-text text-muted">{{food.description | titlecase}}</p>
+          
+          <div class="d-flex justify-content-between align-items-center">
+            <h6 class="card-text mb-0">
+              <ng-container *ngFor="let star of [].constructor(food.rating); let i = index">
+                <span class="fa fa-star" style="color: orange;"></span>
+              </ng-container>
+              <ng-container *ngFor="let star of [].constructor(5 - food.rating); let i = index">
+                <span class="fa fa-star" style="color: lightgray;"></span>
+              </ng-container>
+            </h6>
+            <a href="#" class="btn btn-outline-danger">Order Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
