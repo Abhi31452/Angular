@@ -1,0 +1,57 @@
+
+
+<article class="d-flex justify-content-center">
+    <div class="w-50 border border-2 p-4 shadow p-3 mb-5 bg-white rounded">
+<div class="container">
+    <h2 class="text-danger text-center"  style ="height: 50px; background-color:  #85e0dc; ">Add  food_item </h2>
+    <form #food_itemForm="ngForm" (ngSubmit)="onSubmit(food_itemForm)">
+      <div class="form-group">
+        <label for="name">Food_item Name</label>
+        <input type="text" id="name" name="name"  class="form-control" [(ngModel)]="food_item.name"
+               />
+      </div>
+  
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" class="form-control"
+          [(ngModel)]="food_item.description"
+        ></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="category">Category</label>
+        <input   type="text"  id="category" name="category" class="form-control"
+          [(ngModel)]="food_item.category"
+          required
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input type="number"  id="price" name="price" class="form-control"
+          [(ngModel)]="food_item.price"
+          required
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="quantity_in_stock">Quantity in Stock</label>
+        <input type="number"  id="quantity_in_stock"  name="quantity_in_stock"
+          class="form-control"  [(ngModel)]="food_item.quantity_in_stock"
+          required />
+      </div>
+  
+      <div class="form-group">
+        <label for="image_url">Image </label>
+        <input  type="file" id="image_url" name="image_url" class="form-control"
+          [(ngModel)]="food_item.image" />
+      </div>
+      
+      <button type="submit" class="btn btn-primary" [disabled]="food_itemForm.invalid">
+        Add FoodItem
+      </button>
+    </form>
+  </div>
+  </div>
+</article>
+  

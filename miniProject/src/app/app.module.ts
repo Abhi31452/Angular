@@ -11,7 +11,11 @@ import { MenusComponent } from './menus/menus.component';
 import { Routes } from '@angular/router';
 import { CardsComponent } from './cards/cards.component';
 import { FormComponent } from './form/form.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { FoodItemComponent } from './food-item/food-item.component';
+import { HomeComponent } from './home/home.component';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   { path: '/menus', component: MenusComponent }, // Default route
@@ -26,11 +30,15 @@ const routes: Routes = [
     GalleryComponent,
     MenusComponent,
     CardsComponent,
-    FormComponent
+    FormComponent,
+    AdminLoginComponent,
+    FoodItemComponent,
+    HomeComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule  ,ReactiveFormsModule
+    AppRoutingModule  ,ReactiveFormsModule ,FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

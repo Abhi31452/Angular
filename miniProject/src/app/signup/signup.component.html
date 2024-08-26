@@ -1,0 +1,44 @@
+<article class="d-flex justify-content-center">
+    <div class="w-50 border border-2 p-4 shadow p-3 mb-5 bg-white rounded">
+        <h2 class="text-center mb-4">Sign Up</h2>
+    <form [formGroup]="signup" (ngSubmit)="collectdata(signup)">
+<div class="form-group col-md-10 mb-4">
+    <label for="fname">Enter Firstname</label>
+    <input class="form-control" type="text" id="fname" formControlName="fname" placeholder="Firstname" />
+</div>
+<div class="form-group col-md-10 mb-4">
+     <label for="lname">Enter Lastname</label>
+    <input class="form-control" type="text" id="lname" formControlName="lname" placeholder="Lastname" />
+  </div>
+
+<div class="form-group col-md-10 mb-4">
+    <label for="age">Enter Age</label>
+    <input class="form-control" type="number" id="age" formControlName="age" placeholder="Age" />
+  </div>
+
+<div class="form-group col-md-10 mb-4">
+    <label for="phno">Enter Phone number</label>
+    <input class="form-control" type="number" id="phno" formControlName="phno" placeholder="Phone number" />
+</div>
+
+<div class="form-group col-md-10 mb-4">
+    <label for="email">Enter Emailid</label>
+    <input class="form-control" type="email" id="email" formControlName="email" placeholder="Emailid" />
+</div>
+
+<div class="form-group col-md-10 mb-4">
+    <label for="pass">Enter Password</label>
+    <input class="form-control" type="password" id="pass" formControlName="pass" placeholder="Password" />
+</div>
+
+<div class="form-group col-md-10 mb-4">
+    <label for="confirmPass">Confirm Password</label>
+    <input class="form-control" type="password" id="confirmPass" formControlName="confirmPass" placeholder="Confirm Password" />
+</div>  
+
+<div class="d-flex justify-content-center mb-4">
+    <button class="btn btn-primary" type="submit">Submit</button>
+</div>
+  </form>
+</div>
+</article>

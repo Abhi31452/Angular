@@ -10,7 +10,9 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   applicationName="EMPLOYEE CRUD";
-  companyName="Neosoft Pvt. Ltd."
+  companyName="Neosoft Pvt. Ltd.";
+  sortorder="";
+  sortby=""
 
 
   @Output()

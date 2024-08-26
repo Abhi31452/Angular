@@ -5,13 +5,13 @@
 <!-- import {age } from ../customPipe/age.pipe; -->
 
 <!-- Container for the grid layout -->
-  <label id="for"> Enter ur criteria</label>
+  <!-- <label id="for"> Enter ur criteria</label>
     <select [ngModel]="criteria" id="for" >
       <option value=""> Employee Id</option>
       <option value=""> Employee Name </option>
       <option value=""> Salary</option>
       <option value=""> Joining Date </option>
-    </select>
+    </select> -->
   
 <div class="container">
   <!-- Row for cards -->
@@ -30,10 +30,10 @@
           <li class="list-group-item">  Dept Code :  {{ emp.deptCode | titlecase }}</li>
           <li class="list-group-item">  Experience : {{ emp.experience }}</li>
           <li class="list-group-item">  DOB :  {{ emp.dob | date: 'longDate' }}</li>
-          <li class="list-group-item">  Age  : {{ emp.dob | age }}</li>
+          <!-- <li class="list-group-item">  Age  : {{ emp.dob | age }}</li> -->
         </ul>
         <div class="card-body">
-          <a href="#" class="card-link">Another link</a>
+          <a [routerLink]='["../editemployee",emp.empid]' class="card-link" >Edit </a>
         </div>
       </div>
     </div>
