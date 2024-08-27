@@ -1,6 +1,3 @@
-
-
-
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
@@ -13,7 +10,6 @@ export class HeaderComponent implements OnInit {
   companyName="Neosoft Pvt. Ltd.";
   sortorder="";
   sortby=""
-
 
   @Output()
   emitter=new EventEmitter<string>();

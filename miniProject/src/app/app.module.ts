@@ -16,6 +16,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { FoodItemComponent } from './food-item/food-item.component';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
   { path: '/menus', component: MenusComponent }, // Default route
@@ -34,7 +35,8 @@ const routes: Routes = [
     AdminLoginComponent,
     FoodItemComponent,
     HomeComponent,
-    SignupComponent
+    SignupComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

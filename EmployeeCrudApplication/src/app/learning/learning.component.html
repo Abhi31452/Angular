@@ -276,3 +276,11 @@
         <!-- {{birthdate | date :'fullDate' }} -->
     </li>
 </ol>
+
+
+<!-- app.component.html -->
+<select [(ngModel)]="selectedColor">
+    <option *ngFor="let color of colors" [value]="color">{{ color }}</option>
+  </select>
+  <p>Selected color: {{ selectedColor }}</p>
+  

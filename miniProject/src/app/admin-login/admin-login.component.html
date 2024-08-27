@@ -3,23 +3,26 @@
     <div class="w-50 border border-2 p-4 shadow p-3 mb-5 bg-white rounded">
 <div class="login-container">
     <h2>Admin Login</h2>
+    <p class="text-danger">
+      {{message}}
+    </p>
     <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm) ">
       <div class="form-group">
         <label for="username">Username</label>
         <input
-          type="text" id="username" name="username" class="form-control" [(ngModel)]="admin.username" #username="ngModel" required />
-        <div *ngIf="username.invalid && username.touched" class="error text-danger">
+          type="text" id="username" name="user" class="form-control" [(ngModel)]="admin.user" #username="ngModel" required />
+        <!-- <div *ngIf="username.invalid && username.touched" class="error text-danger">
           Username is required.
-        </div>
+        </div> -->
       </div>
   
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" class="form-control"
-          [(ngModel)]="admin.password" #password="ngModel" required />
-        <div *ngIf="password.invalid && password.touched" class="error text-danger">
+        <input type="password" id="password" name="pass" class="form-control"
+          [(ngModel)]="admin.pass" #password="ngModel" required />
+        <!-- <div *ngIf="password.invalid && password.touched" class="error text-danger">
           Password is required.
-        </div>
+        </div> -->
       </div>
   
       <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">

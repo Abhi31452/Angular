@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from '../customService/user.service';
 
 @Component({
   selector: 'app-admin-login',
@@ -8,26 +9,20 @@ import { Router } from '@angular/router';
   styleUrl: './admin-login.component.css'
 })
 export class AdminLoginComponent {
-onSubmit(_t9: NgForm) {
-throw new Error('Method not implemented.');
-}
+
 password: any;
 username: any;
 message:string="";
-constructor( public router: Router){
+flag=false;
 
-}
-collectData(form:any){
-  console.log(form.value);
-  this.form(form.value.username ,form.value.password);
-}
-form(username :string,password :string){
- if(username=="admin" && password=="admin123"){
-  this.router.navigate(['../home']);
- }else{
-  this.message="Incorrect username & password"
+constructor( public router: Router ,public userservice : UserService){}
+collectData(loginForm:NgForm){
+  console.log(loginForm.value);
+   this.flag=this.userservice.login(loginForm.value.uname,loginForm.value.pass);
+   if(this.flag)
+     this.router.navigate(['../home'])
+   else
+     this.message="Incorrect username or password"
  }
   
-}
-
 }

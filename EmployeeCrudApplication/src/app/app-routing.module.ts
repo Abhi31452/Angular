@@ -8,6 +8,7 @@ import path from 'path';
 import { NeosoftComponent } from './neosoft/neosoft.component';
 import { WebworksComponent } from './webworks/webworks.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { authenticationcard } from './Guards/guard';
 
 const routes: Routes = [
 
@@ -45,7 +46,8 @@ const routes: Routes = [
   },
   {
     path : 'addEmployee',
-    component : EmployeeFormComponent
+    component : EmployeeFormComponent,
+    canActivate:[authenticationcard]
   },
   {
     path:'**',

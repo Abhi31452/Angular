@@ -96,4 +96,7 @@ test(){
 }
 
 birthDates=[new Date('12 Jan 2024'), new Date('11 Jan 2024'), new Date('10 Dec 2023')]
+
+selectedColor: string = '';
+colors: string[] = ['Red', 'Green', 'Blue'];
 }
