@@ -19,6 +19,7 @@ import { HomeComponent } from './home/home.component';
 import { NeosoftComponent } from './neosoft/neosoft.component';
 import { WebworksComponent } from './webworks/webworks.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { provideHttpClient } from '@angular/common/http';
 
 
 @NgModule({
@@ -45,7 +46,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
     FormsModule, ReactiveFormsModule
 
   ],
-  providers: [DatePipe],  
+  providers: [DatePipe, provideHttpClient()],
   // providers: [
   //   provideClientHydration()
   // ],

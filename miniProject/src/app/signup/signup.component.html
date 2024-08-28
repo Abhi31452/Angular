@@ -1,7 +1,7 @@
 <article class="d-flex justify-content-center">
     <div class="w-50 border border-2 p-4 shadow p-3 mb-5 bg-white rounded">
         <h2 class="text-center mb-4">Sign Up</h2>
-    <form [formGroup]="signup" (ngSubmit)="collectdata(signup)">
+    <form #signup="ngForm" (ngSubmit)="collectdata(signup)">
 <div class="form-group col-md-10 mb-4">
     <label for="fname">Enter Firstname</label>
     <input class="form-control" type="text" id="fname" formControlName="fname" placeholder="Firstname" />

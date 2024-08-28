@@ -36,7 +36,7 @@ const routes: Routes = [
     FoodItemComponent,
     HomeComponent,
     SignupComponent,
-    CartComponent
+    CartComponent,
   ],
   imports: [
     BrowserModule,

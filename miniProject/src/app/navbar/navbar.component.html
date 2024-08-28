@@ -9,27 +9,47 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav" style="font-size: 25px;">
                     <li class="nav-item ">
-                        <a class="nav-link" routerLinkActive="activeLink" routerLink="home">Home</a>
+                        <a class="nav-link fs-5 " routerLinkActive="activeLink" routerLink="home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLinkActive="activeLink" routerLink="menu" >Menus</a>
+                        <a class="nav-link fs-5" routerLinkActive="activeLink" routerLink="menu" >Menus</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLinkActive="activeLink" routerLink="contact">Contact</a>
+                        <a class="nav-link fs-5" routerLinkActive="activeLink" routerLink="contact">Contact</a>
                     </li>
+                <li class="nav-item">
+                    <a class="nav-link fs-5" *ngIf="user.usname=='admin'" routerLinkActive="activeLink" routerLink="food-item"> Add FoodItem</a>
+                </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLinkActive="activeLink" routerLink="signup" >Register</a>
+                        <a class="nav-link fs-5" routerLinkActive="activeLink" routerLink="signup" >Register</a>
                     </li>
                 </ul>
                 </div>
-                    <form class="d-flex ms-auto my-lg-0 pe-20">
+                    <form class="d-flex ms-auto my-lg-0 ">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-warning my-2 my-sm-0" type="submit">Search</button>
+                        <button class="btn btn-warning my-2 my-sm-0 fs-5" type="submit">Search</button>
                       </form>
-                <ul class="navbar-nav" style="font-size: 25px; margin-left: 10px;">
-                    <li class="nav-item pe-0">
+                <ul class="navbar-nav fs-5" style=" margin-left: 10px;">
+                    <li class="nav-item pe-0" *ngIf=" !user.loginflag">
+                        <!-- (!admin.loginFlag || -->
                         <a class="nav-link" routerLinkActive="activeLink"routerLink="login">Login</a>
                     </li>
+                    <li class="nav-item pe-0" *ngIf="user.loginflag" >
+                        <!-- admin.loginFlag ||  -->
+                        <h5 class="text-warning">{{username}}</h5>
+                        <a class="nav-link fs-5" (click)="logout.logout(user)" routerLinkActive="activeLink"routerLink="logout">Logout</a>
+                    </li>
+                 
+                </ul>
+                <ul class="navbar-nav" style="font-size: 25px; margin-left: 10px;">
+                    <!-- <li class="nav-item pe-0" *ngIf="!user.loginflag">
+                        <a class="nav-link" routerLinkActive="activeLink"routerLink="login">Login</a>
+                    </li> -->
+                    <!-- <li class="nav-item pe-0" *ngIf="user.loginflag" >
+                        <h5 class="text-warning">{{username}}</h5>
+                        <a class="nav-link" routerLinkActive="activeLink"routerLink="login">Logout</a>
+                    </li> -->
+                    
                 </ul>
                
             </div>

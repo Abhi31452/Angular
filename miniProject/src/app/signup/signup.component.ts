@@ -1,5 +1,5 @@
 import { Component ,OnInit} from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -22,7 +22,7 @@ export class SignupComponent {
      });
   }
 
-collectdata(form: FormGroup): void {
+collectdata(form: NgForm): void {
   if (form.valid) {
     console.log('Form Data: ', form.value);
   } else {

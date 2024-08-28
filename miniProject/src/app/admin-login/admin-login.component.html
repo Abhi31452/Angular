@@ -10,7 +10,7 @@
       <div class="form-group">
         <label for="username">Username</label>
         <input
-          type="text" id="username" name="user" class="form-control" [(ngModel)]="admin.user" #username="ngModel" required />
+          type="text" id="username" name="user" ngModel class="form-control"   required />
         <!-- <div *ngIf="username.invalid && username.touched" class="error text-danger">
           Username is required.
         </div> -->
@@ -18,8 +18,7 @@
   
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" id="password" name="pass" class="form-control"
-          [(ngModel)]="admin.pass" #password="ngModel" required />
+        <input type="password" id="password" name="pass" class="form-control" ngModel required />
         <!-- <div *ngIf="password.invalid && password.touched" class="error text-danger">
           Password is required.
         </div> -->
