@@ -47,7 +47,7 @@ const routes: Routes = [
   {
     path : 'addEmployee',
     component : EmployeeFormComponent,
-    canActivate:[authenticationcard]
+    // canActivate:[authenticationcard]
   },
   {
     path:'**',

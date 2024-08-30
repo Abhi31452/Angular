@@ -9,6 +9,7 @@ export class Employee {
         // public dob = new Date(),
         // public Aged = 0,
         public secretCode =0,
-        public confirmCode =0
+        public confirmCode =0,
+        public employeepic=""
     ){}
 }

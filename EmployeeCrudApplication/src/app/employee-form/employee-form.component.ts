@@ -29,6 +29,7 @@ export class EmployeeFormComponent {
       experience: new FormControl("", [Validators.required, Validators.min(0), Validators.max(99)]),
       secretCode: new FormControl("123", [Validators.required, Validators.minLength(3), Validators.maxLength(6)]),
       confirmCode: new FormControl(),
+      employee_pic:new FormControl("",[Validators.required])
 
     });
 
@@ -65,7 +66,14 @@ export class EmployeeFormComponent {
     console.log(this.employeeForm.value);
     this.employee = this.employeeForm.value;
     // console.log( this.activeRoute.snapshot.routeConfig?.path);
-    if(this.activeRoute.snapshot.routeConfig?.path=="addEmployee")
+    // if(this.activeRoute.snapshot.routeConfig?.path=="addEmployee")
     this.empcrud.addEmployee(this.employeeForm.value);
+  }
+
+  onFileSelected(event:any) {
+    const file:File = event.target.files[0];
+    this.empcrud.fileUpload(file);
+    console.log("file coming",file);
+    
   }
 }
