@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { FoodItemCrudService } from '../customsServices/crud/food-item-crud.service';
 
 @Component({
   selector: 'app-cards',
@@ -7,7 +8,7 @@ import { Component, Input } from '@angular/core';
 })
 export class CardsComponent {
 
-  constructor(){
+  constructor(public fooditem:FoodItemCrudService){
 
   }
   

@@ -19,7 +19,7 @@
     <div class="col mb-4" *ngFor="let emp of neoemployee | orderby : '{{criteria}}'">
       <div class="card m-2" [ngStyle]="cardStyle">
         <!-- <img src="https://static-koimoi.akamaized.net/wp-content/new-galleries/2024/08/did-you-know-that-johnny-depp-never-watched-his-first-pirates-of-the-caribbean-movie-where-he-portrayed-the-iconic-character-of-captain-jack-sparrow-001.jpg" class="card-img-top" alt="Employee Image"> -->
-        <img src="emp.employee_pic" class="card-img-top" alt="Employee Image">
+        <img  [src]="toUrl(emp)" class="card-img-top" alt="Employee Image">
         <div class="card-body">
           <h5 class="card-title">{{ emp.empid }}</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -35,6 +35,7 @@
         </ul>
         <div class="card-body">
           <a [routerLink]='["../editemployee",emp.empid]' class="card-link" >Edit </a>
+          <a [routerLink]='["../deleteemployee",emp.empid]' (click)="deleteEmployee(emp.empId)" class="card-link" >Delete  </a>
         </div>
       </div>
     </div>

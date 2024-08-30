@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Employee } from '../customclasses/employee';
 import { EmployeeCrudService } from '../customService/employee-crud.service';
 
@@ -8,9 +8,11 @@ import { EmployeeCrudService } from '../customService/employee-crud.service';
   styleUrl: './neo-employee.component.css'
 })
 export class NeoEmployeeComponent {
+  notFoundMessage: string ="";
 constructor( public empcrud :EmployeeCrudService){
   this.getAllEmployee();
 }
+employee:any;
 
 
 neoemployee:Employee[]=[];
@@ -35,8 +37,64 @@ getAllEmployee(){
   });
 }
 
+deleteEmployee(id:number)
+{
+  const obs = this.empcrud.deleteById(id);
+  console.log(id);
+  
+  obs.subscribe({
+    next:(data)=>{
+      window.alert("Employee deleted successfully");
+    },
+    error:(error)=>console.log(error)
+  });
+}
+
+toBase64(arr: any) {
+  return btoa(
+    arr?.reduce(
+      (data: any, byte: any) => data + String.fromCharCode(byte),
+      ''
+    )
+  );
+}
+
+toUrl(data: any) {
+  // console.log(data);
+  
+  let profilePicBuffer = data.employee_pic?.data.data
+
+  // console.log(`data:image/jpeg;base64,${this.toBase64(profilePicBuffer)}`);
+  
+  return `data:image/jpeg;base64,${this.toBase64(profilePicBuffer)}`
+ 
+}
+
+getId(_id:string){
+  if(_id!=""){
+    const obs=this.empcrud.getEmployeeById(parseInt(_id));
+    obs.subscribe({
+      next:(data)=>{
+        this.employee=data as Employee;
+        if(this.employee!=null){
+          this.neoemployee=[this.employee];
+          this.notFoundMessage="";
+        }
+        else{
+          this.notFoundMessage="NOT FOUND"
+        }
+      },
+      error:(error)=>console.log(error)
+    });
+  }
+  else{
+    this.getAllEmployee();
+  }
+}
 
 
+// @Output()
+// emitter=new EventEmitter<number>();
 
 cardStyle={
   width:"20rem",  // camel case 
