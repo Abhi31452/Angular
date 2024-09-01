@@ -18,6 +18,7 @@ import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { CartComponent } from './cart/cart.component';
 import { DatePipe } from '@angular/common';
+import { provideHttpClient } from '@angular/common/http';
 
 const routes: Routes = [
   { path: '/menus', component: MenusComponent }, // Default route
@@ -48,7 +49,4 @@ const routes: Routes = [
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-function provideHttpClient(): import("@angular/core").Provider | import("@angular/core").EnvironmentProviders {
-  throw new Error('Function not implemented.');
-}
 
